@@ -126,7 +126,6 @@
                     applyVeganColor="@{favoritesEntity.result.vegan}"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    app:tint="@color/mediumGray"
                     app:layout_constraintEnd_toEndOf="@+id/favorite_leaf_textView"
                     app:layout_constraintStart_toStartOf="@+id/favorite_leaf_textView"
                     app:layout_constraintTop_toTopOf="@+id/favorite_clock_imageView"

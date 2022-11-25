@@ -30,7 +30,7 @@ class OverviewFragment : Fragment() {
         val args = arguments
         val myBundle: Result = args!!.getParcelable<Result>(RECIPE_RESULT_KEY) as com.example.foody.models.Result
 
-        binding.mainImageView.load(myBundle?.image)
+        binding.mainImageView.load(myBundle.image)
         binding.titleTextView.text = myBundle.title
         binding.likesTextView.text = myBundle.aggregateLikes.toString()
         binding.timeTextView.text = myBundle.readyInMinutes.toString()

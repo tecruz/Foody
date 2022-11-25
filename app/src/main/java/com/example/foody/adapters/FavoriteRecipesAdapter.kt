@@ -63,7 +63,7 @@ class FavoriteRecipesAdapter(
                 applySelection(holder, currentRecipe)
             } else {
                 val action =
-                    FavoritesFragmentDirections.actionFavoritesFragmentToDetailsActivity(
+                    FavoritesFragmentDirections.actionFavoriteRecipesFragmentToDetailsActivity(
                         currentRecipe.result
                     )
                 holder.itemView.findNavController().navigate(action)

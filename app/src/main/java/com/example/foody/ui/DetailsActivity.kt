@@ -63,12 +63,12 @@ class DetailsActivity : AppCompatActivity() {
             resultBundle
         )
 
-        binding.pager.isUserInputEnabled = false
-        binding.pager.apply {
+        binding.viewPager2.isUserInputEnabled = false
+        binding.viewPager2.apply {
             adapter = pagerAdapter
         }
 
-        TabLayoutMediator(binding.tabLayout, binding.pager) { tab, position ->
+        TabLayoutMediator(binding.tabLayout, binding.viewPager2) { tab, position ->
             tab.text = titles[position]
         }.attach()
     }

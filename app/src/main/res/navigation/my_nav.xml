@@ -11,8 +11,8 @@
         android:label="Recipes"
         tools:layout="@layout/fragment_recipes" >
         <action
-            android:id="@+id/action_recipesFragment_to_recipesBottomSheetFragment"
-            app:destination="@id/recipesBottomSheetFragment" />
+            android:id="@+id/action_recipesFragment_to_recipesBottomSheet"
+            app:destination="@id/recipesBottomSheet" />
         <argument
             android:name="backFromBottomSheet"
             app:argType="boolean"
@@ -22,12 +22,12 @@
             app:destination="@id/detailsActivity" />
     </fragment>
     <fragment
-        android:id="@+id/favoritesFragment"
+        android:id="@+id/favoriteRecipesFragment"
         android:name="com.example.foody.ui.fragments.favorites.FavoritesFragment"
         android:label="Favorites"
-        tools:layout="@layout/fragment_favorites" >
+        tools:layout="@layout/fragment_favorite_recipes" >
         <action
-            android:id="@+id/action_favoritesFragment_to_detailsActivity"
+            android:id="@+id/action_favoriteRecipesFragment_to_detailsActivity"
             app:destination="@id/detailsActivity" />
     </fragment>
     <fragment
@@ -36,12 +36,12 @@
         android:label="Food Joke"
         tools:layout="@layout/fragment_food_joke" />
     <dialog
-        android:id="@+id/recipesBottomSheetFragment"
+        android:id="@+id/recipesBottomSheet"
         android:name="com.example.foody.ui.fragments.recipes.bottomsheet.RecipesBottomSheet"
         android:label="recipes_bottom_sheet"
         tools:layout="@layout/recipes_bottom_sheet" >
         <action
-            android:id="@+id/action_recipesBottomSheetFragment_to_recipesFragment"
+            android:id="@+id/action_recipesBottomSheet_to_recipesFragment"
             app:destination="@id/recipesFragment"
             app:popUpTo="@id/recipesFragment"
             app:popUpToInclusive="true" />

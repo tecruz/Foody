@@ -9,11 +9,11 @@
         motion:duration="1000">
        <KeyFrameSet>
            <KeyAttribute
-               motion:motionTarget="@+id/likes_textView"
+               motion:motionTarget="@+id/likes_imageView"
                motion:framePosition="100"
                android:alpha="0" />
            <KeyAttribute
-               motion:motionTarget="@+id/likes_imageView"
+               motion:motionTarget="@+id/likes_textView"
                motion:framePosition="100"
                android:alpha="0" />
            <KeyAttribute

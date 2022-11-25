@@ -7,7 +7,7 @@
         android:icon="@drawable/ic_star"
         android:title="@string/save_to_favorites"
         app:showAsAction="ifRoom"
-        app:iconTint="@color/white"
+        android:iconTint="@color/white"
         tools:targetApi="o" />
 
 </menu>
