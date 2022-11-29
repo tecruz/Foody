@@ -1,8 +1,10 @@
 package com.example.foody.di
 
 import com.example.foody.BuildConfig
-import com.example.foody.util.Constants
 import com.example.foody.data.network.FoodRecipesApi
+import com.example.foody.util.Constants
+import com.example.foody.util.Constants.Companion.CONNECTION_TIMEOUT
+import com.example.foody.util.Constants.Companion.READ_TIMEOUT
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -35,8 +37,8 @@ object NetworkModule {
         }
 
         clientBuilder
-            .readTimeout(15, TimeUnit.SECONDS)
-            .connectTimeout(15, TimeUnit.SECONDS)
+            .readTimeout(READ_TIMEOUT, TimeUnit.SECONDS)
+            .connectTimeout(CONNECTION_TIMEOUT, TimeUnit.SECONDS)
 
         return clientBuilder.build()
     }
@@ -49,15 +51,15 @@ object NetworkModule {
 
     @Singleton
     @Provides
-    fun provideRetrofitInstance(okHttpClient: OkHttpClient,
-                                gsonConverterFactory: GsonConverterFactory
-    ):Retrofit {
+    fun provideRetrofitInstance(
+        okHttpClient: OkHttpClient,
+        gsonConverterFactory: GsonConverterFactory
+    ): Retrofit {
         return Retrofit.Builder()
             .baseUrl(Constants.BASE_URL)
             .client(okHttpClient)
             .addConverterFactory(gsonConverterFactory)
             .build()
-
     }
 
     @Singleton

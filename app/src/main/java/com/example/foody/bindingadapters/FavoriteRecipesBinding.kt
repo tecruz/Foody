@@ -19,11 +19,11 @@ class FavoriteRecipesBinding {
             favoritesEntity: List<FavoritesEntity>?,
             mAdapter: FavoriteRecipesAdapter?
         ) {
-            when(view) {
+            when (view) {
                 is RecyclerView -> {
                     val dataCheck = favoritesEntity.isNullOrEmpty()
                     view.isInvisible = dataCheck
-                    if(!dataCheck){
+                    if (!dataCheck) {
                         favoritesEntity?.let { mAdapter?.setData(it) }
                     }
                 }

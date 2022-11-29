@@ -12,6 +12,7 @@ import coil.load
 import com.example.foody.R
 import com.example.foody.models.Result
 import com.example.foody.ui.fragments.recipes.RecipesFragmentDirections
+import com.example.foody.util.Constants.Companion.CROSSFADE_DURATION
 import org.jsoup.Jsoup
 
 class RecipesRowBinding {
@@ -36,7 +37,7 @@ class RecipesRowBinding {
         @JvmStatic
         fun loadImageFromUrl(imageView: ImageView, imageUrl: String) {
             imageView.load(imageUrl) {
-                crossfade(600)
+                crossfade(CROSSFADE_DURATION)
                 error(R.drawable.ic_error_placeholder)
             }
         }
@@ -68,8 +69,8 @@ class RecipesRowBinding {
 
         @BindingAdapter("parseHtml")
         @JvmStatic
-        fun parseHtml(textView: TextView, description: String?){
-            if(description != null){
+        fun parseHtml(textView: TextView, description: String?) {
+            if (description != null) {
                 val desc = Jsoup.parse(description).text()
                 textView.text = desc
             }

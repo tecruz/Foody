@@ -17,8 +17,8 @@ import com.example.foody.ui.fragments.ingredients.IngredientsFragment
 import com.example.foody.ui.fragments.instructions.InstructionsFragment
 import com.example.foody.ui.fragments.overview.OverviewFragment
 import com.example.foody.util.Constants.Companion.RECIPE_RESULT_KEY
+import com.example.foody.util.UIUtil
 import com.example.foody.viewmodels.MainViewModel
-import com.google.android.material.snackbar.Snackbar
 import com.google.android.material.tabs.TabLayoutMediator
 import dagger.hilt.android.AndroidEntryPoint
 
@@ -86,19 +86,18 @@ class DetailsActivity : AppCompatActivity() {
     }
 
     private fun checkSavedRecipes(menuItem: MenuItem) {
-        mainViewModel.readFavoriteRecipes.observe(this){ favoritesEntity ->
+        mainViewModel.readFavoriteRecipes.observe(this) { favoritesEntity ->
             try {
-                for(savedRecipe in favoritesEntity){
-                    if(savedRecipe.result.id == args.result.id){
+                for (savedRecipe in favoritesEntity) {
+                    if (savedRecipe.result.id == args.result.id) {
                         changeMenuItemColor(menuItem, R.color.yellow)
                         savedRecipeId = savedRecipe.id
                         recipeSaved = true
                     }
                 }
-            } catch (e: Exception){
+            } catch (e: Exception) {
                 Log.d("DetailsActivity", e.message.toString())
             }
-
         }
     }
 
@@ -121,7 +120,7 @@ class DetailsActivity : AppCompatActivity() {
             )
         mainViewModel.insertFavoriteRecipe(favoritesEntity)
         changeMenuItemColor(item, R.color.yellow)
-        showSnackbar("Recipe saved.")
+        UIUtil.showSnackBar(binding.detailsLayout, "Recipe saved.")
         recipeSaved = true
     }
 
@@ -133,17 +132,8 @@ class DetailsActivity : AppCompatActivity() {
             )
         mainViewModel.deleteFavoriteRecipe(favoritesEntity)
         changeMenuItemColor(item, R.color.white)
-        showSnackbar("Removed from favorites.")
+        UIUtil.showSnackBar(binding.detailsLayout, "Removed from favorites.")
         recipeSaved = false
-    }
-
-    private fun showSnackbar(message: String) {
-        Snackbar.make(
-            binding.detailsLayout,
-            message,
-            Snackbar.LENGTH_SHORT
-        ).setAction("Okay"){}
-            .show()
     }
 
     private fun changeMenuItemColor(item: MenuItem, color: Int) {

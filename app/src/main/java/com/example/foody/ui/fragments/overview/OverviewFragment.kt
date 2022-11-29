@@ -1,5 +1,6 @@
 package com.example.foody.ui.fragments.overview
 
+import android.os.Build
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -14,7 +15,6 @@ import com.example.foody.bindingadapters.RecipesRowBinding
 import com.example.foody.databinding.FragmentOverviewBinding
 import com.example.foody.models.Result
 import com.example.foody.util.Constants.Companion.RECIPE_RESULT_KEY
-import org.jsoup.Jsoup
 
 class OverviewFragment : Fragment() {
 
@@ -28,9 +28,15 @@ class OverviewFragment : Fragment() {
         _binding = FragmentOverviewBinding.inflate(layoutInflater, container, false)
 
         val args = arguments
-        val myBundle: Result = args!!.getParcelable<Result>(RECIPE_RESULT_KEY) as com.example.foody.models.Result
+        val myBundle = if (Build.VERSION.SDK_INT >= 33) {
+            args!!.getParcelable(RECIPE_RESULT_KEY, Result::class.java)
+        } else {
+            @Suppress("DEPRECATION")
+            args!!.getParcelable<Result>(RECIPE_RESULT_KEY) as Result
+        }
 
-        binding.mainImageView.load(myBundle.image)
+        binding.mainImageView.load(myBundle!!.image)
+
         binding.titleTextView.text = myBundle.title
         binding.likesTextView.text = myBundle.aggregateLikes.toString()
         binding.timeTextView.text = myBundle.readyInMinutes.toString()
@@ -53,7 +59,7 @@ class OverviewFragment : Fragment() {
     }
 
     private fun updateColors(stateIsOn: Boolean, textView: TextView, imageView: ImageView) {
-        if(stateIsOn){
+        if (stateIsOn) {
             imageView.setColorFilter(ContextCompat.getColor(requireContext(), R.color.green))
             textView.setTextColor(ContextCompat.getColor(requireContext(), R.color.green))
         }

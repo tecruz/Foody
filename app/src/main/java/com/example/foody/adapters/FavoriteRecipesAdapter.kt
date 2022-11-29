@@ -11,8 +11,8 @@ import com.example.foody.data.database.entities.FavoritesEntity
 import com.example.foody.databinding.FavoriteRecipesRowLayoutBinding
 import com.example.foody.ui.fragments.favorites.FavoritesFragmentDirections
 import com.example.foody.util.RecipesDiffUtil
+import com.example.foody.util.UIUtil
 import com.example.foody.viewmodels.MainViewModel
-import com.google.android.material.snackbar.Snackbar
 
 class FavoriteRecipesAdapter(
     private val requireActivity: FragmentActivity,
@@ -80,11 +80,10 @@ class FavoriteRecipesAdapter(
                 applySelection(holder, currentRecipe)
                 true
             }
-
         }
     }
 
-    private fun saveItemStateOnScroll(holder: MyViewHolder, currentRecipe: FavoritesEntity){
+    private fun saveItemStateOnScroll(holder: MyViewHolder, currentRecipe: FavoritesEntity) {
         if (selectedRecipes.contains(currentRecipe)) {
             changeRecipeStyle(holder, R.color.cardBackgroundLightColor, R.color.colorPrimary)
         } else {
@@ -146,7 +145,8 @@ class FavoriteRecipesAdapter(
             selectedRecipes.forEach {
                 mainViewModel.deleteFavoriteRecipe(it)
             }
-            showSnackBar("${selectedRecipes.size} Recipe/s removed.")
+
+            UIUtil.showSnackBar(rootView, "${selectedRecipes.size} Recipe/s removed.")
 
             multiSelection = false
             selectedRecipes.clear()
@@ -175,15 +175,6 @@ class FavoriteRecipesAdapter(
         val diffUtilResult = DiffUtil.calculateDiff(favoriteRecipesDiffUtil)
         favoriteRecipes = newFavoriteRecipes
         diffUtilResult.dispatchUpdatesTo(this)
-    }
-
-    private fun showSnackBar(message: String) {
-        Snackbar.make(
-            rootView,
-            message,
-            Snackbar.LENGTH_SHORT
-        ).setAction("Okay") {}
-            .show()
     }
 
     fun clearContextualActionMode() {

@@ -38,10 +38,8 @@ class FoodJokeBinding {
                         }
                         is MaterialCardView -> {
                             view.visibility = View.VISIBLE
-                            if (database != null) {
-                                if (database.isEmpty()) {
-                                    view.visibility = View.INVISIBLE
-                                }
+                            if (database != null && database.isEmpty()) {
+                                view.visibility = View.INVISIBLE
                             }
                         }
                     }
@@ -67,21 +65,15 @@ class FoodJokeBinding {
             apiResponse: NetworkResult<FoodJoke>?,
             database: List<FoodJokeEntity>?
         ) {
-            if (database != null) {
-                if (database.isEmpty()) {
-                    view.visibility = View.VISIBLE
-                    if (view is TextView) {
-                        if (apiResponse != null) {
-                            view.text = apiResponse.message.toString()
-                        }
-                    }
+            if (database != null && database.isEmpty()) {
+                view.visibility = View.VISIBLE
+                if (view is TextView && apiResponse != null) {
+                    view.text = apiResponse.message.toString()
                 }
             }
             if (apiResponse is NetworkResult.Success) {
                 view.visibility = View.INVISIBLE
             }
         }
-
     }
-
 }

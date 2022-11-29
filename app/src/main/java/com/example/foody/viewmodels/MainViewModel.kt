@@ -11,6 +11,7 @@ import com.example.foody.data.database.entities.FoodJokeEntity
 import com.example.foody.data.database.entities.RecipesEntity
 import com.example.foody.models.FoodJoke
 import com.example.foody.models.FoodRecipe
+import com.example.foody.util.Constants.Companion.API_KEY_LIMITED
 import com.example.foody.util.NetworkResult
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.Dispatchers
@@ -139,7 +140,7 @@ class MainViewModel @Inject constructor(
             response.message().toString().contains("timeout") -> {
                 return NetworkResult.Error("timeout")
             }
-            response.code() == 402 -> {
+            response.code() == API_KEY_LIMITED -> {
                 return NetworkResult.Error("Api key limited.")
             }
             response.body()!!.results.isEmpty() -> {
@@ -160,7 +161,7 @@ class MainViewModel @Inject constructor(
             response.message().toString().contains("timeout") -> {
                 NetworkResult.Error("Timeout")
             }
-            response.code() == 402 -> {
+            response.code() == API_KEY_LIMITED -> {
                 NetworkResult.Error("API Key Limited.")
             }
             response.isSuccessful -> {

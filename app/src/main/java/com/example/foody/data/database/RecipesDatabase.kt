@@ -12,7 +12,6 @@ import com.example.foody.data.database.entities.RecipesEntity
     version = 1,
     exportSchema = false
 )
-
 @TypeConverters(RecipesTypeConverter::class)
 abstract class RecipesDatabase : RoomDatabase() {
 

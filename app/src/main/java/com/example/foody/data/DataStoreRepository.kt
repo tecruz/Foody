@@ -23,7 +23,7 @@ import javax.inject.Inject
 val Context.dataStore: DataStore<Preferences> by preferencesDataStore(name = PREFERENCES_NAME)
 
 @ViewModelScoped
-class   DataStoreRepository @Inject constructor(@ApplicationContext private val context: Context) {
+class DataStoreRepository @Inject constructor(@ApplicationContext private val context: Context) {
 
     private object PreferenceKeys {
         val selectedMealType = stringPreferencesKey(PREFERENCES_MEAL_TYPE)
@@ -84,7 +84,7 @@ class   DataStoreRepository @Inject constructor(@ApplicationContext private val 
                 throw exception
             }
         }
-        .map {preferences ->
+        .map { preferences ->
             val backOnline = preferences[PreferenceKeys.backOnline] ?: false
             backOnline
         }

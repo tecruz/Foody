@@ -35,7 +35,6 @@ class LocalDataSource @Inject constructor(
         recipesDAO.insertFoodJoke(foodJokeEntity)
     }
 
-
     suspend fun deleteFavoriteRecipes(favoritesEntity: FavoritesEntity) {
         recipesDAO.deleteFavoriteRecipe(favoritesEntity)
     }
