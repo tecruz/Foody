@@ -6,6 +6,7 @@
 [![ui test](https://github.com/tecruz/Foody/actions/workflows/run-ui-test.yml/badge.svg)](https://github.com/tecruz/Foody/actions/workflows/run-ui-test.yml)
 [![unit test](https://github.com/tecruz/Foody/actions/workflows/run-unit-test.yml/badge.svg)](https://github.com/tecruz/Foody/actions/workflows/run-unit-test.yml)
 [![update gradle cache](https://github.com/tecruz/Foody/actions/workflows/update-gradle-cache.yml/badge.svg)](https://github.com/tecruz/Foody/actions/workflows/update-gradle-cache.yml)
+[![Codacy Badge](https://app.codacy.com/project/badge/Grade/4b6019c574024845bdf70b76c2cc5093)](https://www.codacy.com/gh/tecruz/Foody/dashboard?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=tecruz/Foody&amp;utm_campaign=Badge_Grade)
 
 Modern Food Recipes App - Android Development with Kotlin | Online Course
 
