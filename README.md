@@ -1,5 +1,12 @@
 # Foody - Food Recipes App Developed in Kotlin
 
+[![build](https://github.com/tecruz/Foody/actions/workflows/build-debug.yml/badge.svg)](https://github.com/tecruz/Foody/actions/workflows/build-debug.yml)
+[![lint](https://github.com/tecruz/Foody/actions/workflows/run-android-lint.yml/badge.svg)](https://github.com/tecruz/Foody/actions/workflows/run-android-lint.yml)
+[![detekt](https://github.com/tecruz/Foody/actions/workflows/run-detekt.yml/badge.svg)](https://github.com/tecruz/Foody/actions/workflows/run-detekt.yml)
+[![ui test](https://github.com/tecruz/Foody/actions/workflows/run-ui-test.yml/badge.svg)](https://github.com/tecruz/Foody/actions/workflows/run-ui-test.yml)
+[![unit test](https://github.com/tecruz/Foody/actions/workflows/run-unit-test.yml/badge.svg)](https://github.com/tecruz/Foody/actions/workflows/run-unit-test.yml)
+[![update gradle cache](https://github.com/tecruz/Foody/actions/workflows/update-gradle-cache.yml/badge.svg)](https://github.com/tecruz/Foody/actions/workflows/update-gradle-cache.yml)
+
 Modern Food Recipes App - Android Development with Kotlin | Online Course
 
 Udemy: https://www.udemy.com/course/modern-food-recipes-app-android-development-with-kotlin/?referralCode=A60525980D41EFB701C8
