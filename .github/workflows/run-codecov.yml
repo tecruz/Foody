@@ -1,4 +1,4 @@
-name: run detekt
+name: run codecov
 
 on:
   push:
