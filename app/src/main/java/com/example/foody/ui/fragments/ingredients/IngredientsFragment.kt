@@ -1,5 +1,6 @@
 package com.example.foody.ui.fragments.ingredients
 
+import android.os.Build
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -25,7 +26,12 @@ class IngredientsFragment : Fragment() {
         _binding = FragmentIngredientsBinding.inflate(layoutInflater, container, false)
 
         val args = arguments
-        val myBundle: Result? = args?.getParcelable(RECIPE_RESULT_KEY)
+        val myBundle = if (Build.VERSION.SDK_INT >= 33) {
+            args!!.getParcelable(RECIPE_RESULT_KEY, Result::class.java)
+        } else {
+            @Suppress("DEPRECATION")
+            args!!.getParcelable<Result>(RECIPE_RESULT_KEY) as Result
+        }
 
         setupRecyclerView()
         myBundle?.extendedIngredients?.let { mAdapter.setData(it) }
