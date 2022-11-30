@@ -1,5 +1,6 @@
 # Foody - Food Recipes App Developed in Kotlin
 
+[![Codacy Badge](https://api.codacy.com/project/badge/Grade/2eb6191ed07f4752a1b227bb9751a7cf)](https://app.codacy.com/gh/tecruz/Foody?utm_source=github.com&utm_medium=referral&utm_content=tecruz/Foody&utm_campaign=Badge_Grade_Settings)
 [![build](https://github.com/tecruz/Foody/actions/workflows/build-debug.yml/badge.svg)](https://github.com/tecruz/Foody/actions/workflows/build-debug.yml)
 [![lint](https://github.com/tecruz/Foody/actions/workflows/run-android-lint.yml/badge.svg)](https://github.com/tecruz/Foody/actions/workflows/run-android-lint.yml)
 [![detekt](https://github.com/tecruz/Foody/actions/workflows/run-detekt.yml/badge.svg)](https://github.com/tecruz/Foody/actions/workflows/run-detekt.yml)
