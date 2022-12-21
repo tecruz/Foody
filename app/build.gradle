@@ -119,7 +119,7 @@ dependencies {
     implementation 'com.facebook.shimmer:shimmer:0.5.0'
 
     // Jsoup
-    implementation 'org.jsoup:jsoup:1.13.1'
+    implementation 'org.jsoup:jsoup:1.15.3'
 
     //Detekt
     detektPlugins "io.gitlab.arturbosch.detekt:detekt-formatting:1.22.0"
